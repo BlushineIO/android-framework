@@ -1,2 +1,2 @@
-# android-utils
-Various utilities for Android
+# Android Framework
+A Framework for Android Apps
