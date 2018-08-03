@@ -18,9 +18,9 @@ public class SettingsLegalFragment extends AppPreferenceFragment {
 public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 	addPreferencesFromResource(R.xml.settings_legal);
-
+	
 	Resources resources = AppActivity.getActivity().getResources();
-
+	
 	// Privacy Policy
 	Preference privacyPrefs = findPreference(resources.getString(R.string.legal_privacy_policy_key));
 	if (privacyPrefs != null) {
@@ -32,7 +32,7 @@ public void onCreate(Bundle savedInstanceState) {
 			}
 		});
 	}
-
+	
 	// Open source
 	Preference openSourcePrefs = findPreference(resources.getString(R.string.legal_open_source_key));
 	if (openSourcePrefs != null) {

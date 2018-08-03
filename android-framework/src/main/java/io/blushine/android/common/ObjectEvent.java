@@ -1,4 +1,4 @@
-package io.blushine.android.util;
+package io.blushine.android.common;
 
 import java.util.ArrayList;
 import java.util.List;

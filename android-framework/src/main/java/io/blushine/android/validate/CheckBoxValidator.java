@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import io.blushine.android.AppActivity;
 import io.blushine.android.R;
-import io.blushine.android.ui.ColorHelper;
+import io.blushine.android.common.ColorHelper;
 
 /**
  * Use this class to validate checkboxes.

@@ -17,7 +17,7 @@ import android.widget.ListView;
 import java.util.Calendar;
 
 import io.blushine.android.R;
-import io.blushine.android.ui.ColorHelper;
+import io.blushine.android.common.ColorHelper;
 
 /**
  * Material-like spinner

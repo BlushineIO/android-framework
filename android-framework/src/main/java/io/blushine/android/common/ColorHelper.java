@@ -1,4 +1,4 @@
-package io.blushine.android.ui;
+package io.blushine.android.common;
 
 import android.content.res.ColorStateList;
 import android.content.res.Resources;

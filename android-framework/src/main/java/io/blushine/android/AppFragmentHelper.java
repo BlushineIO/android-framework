@@ -6,13 +6,10 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
-import android.support.v7.view.menu.ActionMenuItemView;
-import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -20,12 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import java.lang.reflect.Constructor;
 
-import io.blushine.android.ui.ColorHelper;
-import io.blushine.android.ui.Fonts;
+import io.blushine.android.common.ColorHelper;
 import io.blushine.utils.EventBus;
 
 /**
@@ -195,17 +190,10 @@ void onDestroy() {
 void onViewRestored(View view, @Nullable Bundle savedInstanceState) {
 	updateColorsFromResource();
 	
-	if (Build.VERSION.SDK_INT >= 21) {
-		AppActivity.getActivity().getWindow().setStatusBarColor(mStatusbarColor);
-	}
+	AppActivity.getActivity().getWindow().setStatusBarColor(mStatusbarColor);
 	Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 	if (toolbar != null) {
 		colorToolbar(toolbar);
-		
-		// Fix Fonts
-		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-			fixToolbarFonts(toolbar);
-		}
 	}
 }
 
@@ -244,32 +232,6 @@ private void colorToolbar(Toolbar toolbar) {
 			Drawable icon = menuItem.getIcon();
 			if (icon != null) {
 				icon.setColorFilter(iconColor, PorterDuff.Mode.SRC_IN);
-			}
-		}
-	}
-}
-
-/**
- * Fix Toolbar font styles
- * @param toolbar the toolbar to fix the fonts on
- */
-private void fixToolbarFonts(Toolbar toolbar) {
-	for (int childIndex = 0; childIndex < toolbar.getChildCount(); childIndex++) {
-		View view = toolbar.getChildAt(childIndex);
-		
-		// Title
-		if (view instanceof TextView) {
-			TextView textView = (TextView) view;
-			if (textView.getText().equals(toolbar.getTitle())) {
-				textView.setTypeface(Fonts.MEDIUM.getTypeface());
-			}
-		}
-		// Menu buttons
-		else if (view instanceof ActionMenuView) {
-			ActionMenuView menuView = (ActionMenuView) view;
-			for (int menuItemIndex = 0; menuItemIndex < menuView.getChildCount(); menuItemIndex++) {
-				ActionMenuItemView itemView = (ActionMenuItemView) menuView.getChildAt(menuItemIndex);
-				itemView.setTypeface(Fonts.MEDIUM.getTypeface());
 			}
 		}
 	}

@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import io.blushine.android.AppActivity;
-import io.blushine.android.util.Time;
+import io.blushine.android.common.Time;
 
 /**
  * A preference, which allows to choose a time via two {@link de.mrapp.android.preference.view.NumberPicker}

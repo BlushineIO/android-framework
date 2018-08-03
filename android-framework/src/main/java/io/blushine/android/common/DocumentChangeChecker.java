@@ -1,4 +1,4 @@
-package io.blushine.android.util;
+package io.blushine.android.common;
 
 import android.content.DialogInterface;
 import android.support.annotation.RawRes;

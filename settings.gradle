@@ -1,1 +1,3 @@
-include ':app-utils'
+include ':android-framework', ':android-common'
+
+project(':android-common').projectDir = new File('../../android-common/android-common')
