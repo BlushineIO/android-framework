@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 
+import io.blushine.utils.EventBus;
+
 /**
  * Base class for Android Activities
  */
@@ -91,6 +93,12 @@ protected void onCreate(Bundle savedInstanceState) {
  */
 protected void onFirstTime() {
 
+}
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	super.onActivityResult(requestCode, resultCode, data);
+	EventBus.getInstance().post(new ActivityResultEvent(requestCode, resultCode, data));
 }
 
 @Override
