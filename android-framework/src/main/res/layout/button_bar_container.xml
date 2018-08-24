@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Material Dialog Button Bar -->
-<LinearLayout
+<?xml version="1.0" encoding="utf-8"?><!-- Material Dialog Button Bar -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/button_bar_container"
-	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical"
@@ -12,7 +10,7 @@
 		android:id="@+id/button_bar_divider"
 		android:layout_width="match_parent"
 		android:layout_height="1dp"
-		android:background="@color/button_bar_divider_color_light"
-		android:visibility="gone"/>
+		android:background="@color/list_item_divider"
+		android:visibility="gone" />
 
 </LinearLayout>

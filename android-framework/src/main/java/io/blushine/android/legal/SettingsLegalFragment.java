@@ -2,8 +2,8 @@ package io.blushine.android.legal;
 
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.support.v7.app.ActionBar;
+import android.support.v7.preference.Preference;
 
 import io.blushine.android.AppActivity;
 import io.blushine.android.AppPreferenceFragment;
@@ -24,27 +24,21 @@ public void onCreate(Bundle savedInstanceState) {
 	// Privacy Policy
 	Preference privacyPrefs = findPreference(resources.getString(R.string.legal_privacy_policy_key));
 	if (privacyPrefs != null) {
-		privacyPrefs.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-			@Override
-			public boolean onPreferenceClick(Preference preference) {
-				InfoActivity.show(R.string.legal_privacy_policy_title, R.raw.privacy_policy);
-				return true;
-			}
+		privacyPrefs.setOnPreferenceClickListener(preference -> {
+			InfoActivity.show(R.string.legal_privacy_policy_title, R.raw.privacy_policy);
+			return true;
 		});
 	}
 	
 	// Open source
 	Preference openSourcePrefs = findPreference(resources.getString(R.string.legal_open_source_key));
 	if (openSourcePrefs != null) {
-		openSourcePrefs.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-			@Override
-			public boolean onPreferenceClick(Preference preference) {
-				InfoActivity.show(R.string.legal_open_source_title,
-						"\n\n",
-						R.raw.open_source_legal_app,
-						R.raw.open_source_legal_lib);
-				return true;
-			}
+		openSourcePrefs.setOnPreferenceClickListener(preference -> {
+			InfoActivity.show(R.string.legal_open_source_title,
+					"\n\n",
+					R.raw.open_source_legal_app,
+					R.raw.open_source_legal_lib);
+			return true;
 		});
 	}
 }

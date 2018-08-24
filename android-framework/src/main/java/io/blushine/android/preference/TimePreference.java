@@ -2,11 +2,11 @@ package io.blushine.android.preference;
 
 import android.content.Context;
 import android.os.Parcelable;
-import android.preference.Preference;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
+import android.support.v7.preference.Preference;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 
@@ -20,7 +20,6 @@ import io.blushine.android.common.Time;
  * widgets. The chosen time will only be persisted if confirmed by the user.
  */
 public class TimePreference extends Preference implements TimePickerDialog.OnTimeSetListener {
-private TimePickerDialog mTimePicker;
 private Time mTime = new Time(0, 0, 0);
 
 public TimePreference(@NonNull Context context) {
@@ -87,9 +86,9 @@ private void updateSummary() {
 
 @Override
 protected void onClick() {
-	mTimePicker = TimePickerDialog.newInstance(this, mTime.getHour(), mTime.getMinute(), mTime.getSecond(), DateFormat.is24HourFormat(AppActivity.getActivity()));
-	mTimePicker.vibrate(false);
-	mTimePicker.show(AppActivity.getActivity().getFragmentManager(), TimePreference.class.getSimpleName());
+	TimePickerDialog timePicker = TimePickerDialog.newInstance(this, mTime.getHour(), mTime.getMinute(), mTime.getSecond(), DateFormat.is24HourFormat(AppActivity.getActivity()));
+	timePicker.vibrate(false);
+	timePicker.show(AppActivity.getActivity().getSupportFragmentManager(), TimePreference.class.getSimpleName());
 }
 
 @Override

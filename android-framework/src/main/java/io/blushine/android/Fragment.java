@@ -13,7 +13,7 @@ import java.util.Map;
  * Base class for all fragments. If you want to make a fullscreen fragment, use {@link AppFragment
  * instead}. This class is mostly used for fragments inside fragments.
  */
-public abstract class Fragment extends android.app.Fragment {
+public abstract class Fragment extends android.support.v4.app.Fragment {
 protected View mView;
 private Map<String, Object> mArguments = new HashMap<>();
 private Map<String, AppFragment.ArgumentRequired> mArgumentRequired = new HashMap<>();

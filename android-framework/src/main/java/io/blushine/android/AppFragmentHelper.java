@@ -1,7 +1,5 @@
 package io.blushine.android;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
@@ -10,6 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -85,7 +85,7 @@ public static void gotoFragment(Class<? extends AppFragment> fragmentClass) {
  * @return true if the fragmentClass exists in the back stack
  */
 public static boolean existsInBackStack(Class<? extends Fragment> fragmentClass) {
-	FragmentManager fragmentManager = AppActivity.getActivity().getFragmentManager();
+	FragmentManager fragmentManager = AppActivity.getActivity().getSupportFragmentManager();
 	for (int i = 0; i < fragmentManager.getBackStackEntryCount(); i++) {
 		FragmentManager.BackStackEntry backStackEntry = fragmentManager.getBackStackEntryAt(0);
 		if (fragmentClass.getSimpleName().equals(backStackEntry.getName())) {

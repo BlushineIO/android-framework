@@ -6,8 +6,9 @@
 
 	<!-- Various -->
 	<color name="remove">@color/red_500</color>
-	<color name="list_item_divider">#1E000000</color>
+	<color name="list_item_divider">#1F000000</color>
 	<color name="preferenceTint">@color/accent</color>
+	<color name="button_bar_divider_color_light">#1F000000</color>
 
 	<!-- Text -->
 	<color name="text_highlight">@color/pink_A100</color>
@@ -41,4 +42,5 @@
 	<color name="icon">@color/icon_black</color>
 	<color name="icon_inactive">@color/icon_black_inactive</color>
 	<color name="icon_toolbar">@color/icon_white</color>
+
 </resources>

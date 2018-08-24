@@ -28,6 +28,7 @@
 			@style/Material.PreferenceScreen
 		</item>
 		<item name="android:listViewStyle">@style/Material.List.General</item>
+		<item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
 	</style>
 
 	<!--****************-->

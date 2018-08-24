@@ -1,6 +1,5 @@
 package io.blushine.android;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;
@@ -8,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.EditText;
 
@@ -49,7 +49,7 @@ protected void addSaveView(View view, String name) {
  */
 public void show() {
 	AppActivity activity = AppActivity.getActivity();
-	FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
+	FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
 	fragmentTransaction.replace(android.R.id.content, this);
 	fragmentTransaction.addToBackStack(getClass().getSimpleName());
 	fragmentTransaction.commit();
