@@ -1,6 +1,7 @@
 package io.blushine.android;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.view.LayoutInflater;
@@ -15,17 +16,12 @@ public abstract class AppPreferenceFragment extends PreferenceFragmentCompat {
 private AppFragmentHelper mFragmentHelper = new AppFragmentHelper(this);
 
 @Override
-public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-	// TODO?
-}
-
-@Override
 public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 	return super.onCreateView(inflater, container, savedInstanceState);
 }
 
 @Override
-public void onViewCreated(View view, Bundle savedInstanceState) {
+public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
 	super.onViewCreated(view, savedInstanceState);
 	mFragmentHelper.onViewRestored(view.getRootView(), savedInstanceState);
 }

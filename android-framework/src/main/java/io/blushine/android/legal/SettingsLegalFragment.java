@@ -17,7 +17,6 @@ public class SettingsLegalFragment extends AppPreferenceFragment {
 @Override
 public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
-	addPreferencesFromResource(R.xml.settings_legal);
 	
 	Resources resources = AppActivity.getActivity().getResources();
 	
@@ -41,6 +40,11 @@ public void onCreate(Bundle savedInstanceState) {
 			return true;
 		});
 	}
+}
+
+@Override
+public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+	addPreferencesFromResource(R.xml.settings_legal);
 }
 
 @Override

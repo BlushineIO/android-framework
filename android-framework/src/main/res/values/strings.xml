@@ -26,6 +26,7 @@
 	<string name="exit">Exit</string>
 	<string name="view_changes">View changes</string>
 	<string name="edit_success">Changes saved</string>
+	<string name="accept">Accept</string>
 
 	<!-- Legal Settings -->
 	<string name="legal_category_name">Legal &amp; privacy</string>
