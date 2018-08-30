@@ -50,17 +50,19 @@ public Actions getAction() {
  * The different actions
  */
 public enum Actions {
-	/** Add one or several objects to DB */
+	/** Add one or several objects to the DB */
 	ADD,
-	/** Edit one or several objects in DB */
+	/** Edit one or several objects in the DB */
 	EDIT,
-	/** Remove one or several objects to DB */
+	/** Remove one or several objects to the DB */
 	REMOVE,
 	/** Called after {@link #ADD}, i.e., after an object has been added to the DB */
 	ADDED,
 	/** Called after {@link #EDIT}, i.e., after an object has been edited in the DB */
 	EDITED,
-	/** Called after {@link #REMOVED}, i.e., after an objects has been removed from the DB */
+	/** Called after {@link #REMOVE}, i.e., after an objects has been removed from the DB */
 	REMOVED,
+	/** Result/response from a GET all objects call */
+	GET_RESPONSE,
 }
 }
