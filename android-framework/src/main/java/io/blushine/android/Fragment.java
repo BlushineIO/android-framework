@@ -40,6 +40,20 @@ protected void declareArgument(String argumentName, AppFragment.ArgumentRequired
 	mArgumentRequired.put(argumentName, required);
 }
 
+/**
+ * Add arguments to the class
+ * @param arguments add all the arguments to an existing argument list, or set this bundle as the argument
+ * list.
+ */
+protected void addArguments(Bundle arguments) {
+	Bundle existingArguments = getArguments();
+	if (existingArguments != null) {
+		existingArguments.putAll(arguments);
+	} else {
+		setArguments(arguments);
+	}
+}
+
 @Nullable
 @Override
 public final View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
