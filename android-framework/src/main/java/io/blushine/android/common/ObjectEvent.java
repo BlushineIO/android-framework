@@ -10,12 +10,16 @@ public abstract class ObjectEvent<ObjectType> {
 private final Actions mAction;
 private final List<ObjectType> mObjects = new ArrayList<>();
 
-protected ObjectEvent(ObjectType object, Actions action) {
+protected ObjectEvent(Actions action) {
+	mAction = action;
+}
+
+protected ObjectEvent(Actions action, ObjectType object) {
 	mAction = action;
 	mObjects.add(object);
 }
 
-protected ObjectEvent(List<ObjectType> objects, Actions action) {
+protected ObjectEvent(Actions action, List<ObjectType> objects) {
 	if (objects.isEmpty()) {
 		throw new IllegalArgumentException("objects is empty");
 	}
@@ -64,5 +68,13 @@ public enum Actions {
 	REMOVED,
 	/** Result/response from a GET all objects call */
 	GET_RESPONSE,
+	/** Failed to add objects */
+	ADD_FAILED,
+	/** Failed to edit objects */
+	EDIT_FAILED,
+	/** Failed to remove objects */
+	REMOVE_FAILED,
+	/** Failed to get objects */
+	GET_FAILED,
 }
 }
