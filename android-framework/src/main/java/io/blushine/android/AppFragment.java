@@ -1,7 +1,6 @@
 package io.blushine.android;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
@@ -92,12 +91,7 @@ public void back() {
 	if (isChanged()) {
 		MaterialDialog.Builder dialogBuilder = new MaterialDialog.Builder(getContext());
 		dialogBuilder.setMessage(mBackMessage);
-		dialogBuilder.setPositiveButton(mBackPositiveActionText, new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dismiss();
-			}
-		});
+		dialogBuilder.setPositiveButton(mBackPositiveActionText, (dialog, which) -> dismiss());
 		dialogBuilder.setNegativeButton(R.string.cancel, null);
 		dialogBuilder.show();
 	} else {

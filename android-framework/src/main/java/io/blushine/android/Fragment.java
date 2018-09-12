@@ -101,7 +101,11 @@ private void fetchArguments() {
 	for (Map.Entry<String, AppFragment.ArgumentRequired> entry : mArgumentRequired.entrySet()) {
 		String name = entry.getKey();
 		AppFragment.ArgumentRequired required = entry.getValue();
-		Object value = arguments.get(name);
+		Object value = null;
+		
+		if (arguments != null) {
+			value = arguments.get(name);
+		}
 		
 		if (value != null) {
 			mArguments.put(name, value);
