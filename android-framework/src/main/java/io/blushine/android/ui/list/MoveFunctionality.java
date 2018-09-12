@@ -1,5 +1,6 @@
 package io.blushine.android.ui.list;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.IdRes;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.RecyclerView;
@@ -43,20 +44,18 @@ public void applyFunctionality(AdvancedAdapter<T, ?> adapter, RecyclerView recyc
 }
 
 
+@SuppressLint("ClickableViewAccessibility")
 @Override
 public void onPostBind(AdvancedAdapter<T, ?> adapter, final RecyclerView.ViewHolder viewHolder, int position) {
 	// Start dragging when we press the move button
 	if (mMoveButtonId != INVALID_MOVE_BUTTON) {
 		View button = viewHolder.itemView.findViewById(mMoveButtonId);
 		if (button != null) {
-			button.setOnTouchListener(new View.OnTouchListener() {
-				@Override
-				public boolean onTouch(View v, MotionEvent event) {
-					if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
-						mItemTouchHelper.startDrag(viewHolder);
-					}
-					return false;
+			button.setOnTouchListener((v, event) -> {
+				if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+					mItemTouchHelper.startDrag(viewHolder);
 				}
+				return false;
 			});
 		} else {
 			Log.w(TAG, "onPostBind() — Couldn't find button to start moving list item");
@@ -65,7 +64,10 @@ public void onPostBind(AdvancedAdapter<T, ?> adapter, final RecyclerView.ViewHol
 }
 
 private class MoveCallback extends ItemTouchHelper.Callback {
+	private static final int POSITION_NOT_SET = -1;
 	private AdvancedAdapter<T, ?> mAdapter;
+	private int mFromPosition = POSITION_NOT_SET;
+	private int mToPosition = POSITION_NOT_SET;
 	
 	MoveCallback(AdvancedAdapter<T, ?> advancedAdapter) {
 		mAdapter = advancedAdapter;
@@ -81,9 +83,12 @@ private class MoveCallback extends ItemTouchHelper.Callback {
 	public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
 		T item = mAdapter.getItem(viewHolder.getAdapterPosition());
 		int fromPosition = viewHolder.getAdapterPosition();
-		int toPosition = target.getAdapterPosition();
-		mAdapter.move(fromPosition, toPosition);
-		mListener.onMove(item, fromPosition, toPosition);
+		mToPosition = target.getAdapterPosition();
+		mAdapter.move(fromPosition, mToPosition);
+		
+		if (mFromPosition == POSITION_NOT_SET) {
+			mFromPosition = fromPosition;
+		}
 		return true;
 	}
 	
@@ -95,6 +100,18 @@ private class MoveCallback extends ItemTouchHelper.Callback {
 	@Override
 	public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
 		// Does nothing
+	}
+	
+	@Override
+	public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+		super.clearView(recyclerView, viewHolder);
+		
+		if (mFromPosition != mToPosition) {
+			T item = mAdapter.getItem(viewHolder.getAdapterPosition());
+			mListener.onMoved(item, mFromPosition, mToPosition);
+		}
+		mFromPosition = POSITION_NOT_SET;
+		mToPosition = POSITION_NOT_SET;
 	}
 }
 }
