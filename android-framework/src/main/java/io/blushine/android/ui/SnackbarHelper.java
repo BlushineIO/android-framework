@@ -11,6 +11,7 @@ import com.squareup.otto.Subscribe;
 import io.blushine.android.AppActivity;
 import io.blushine.android.AppFragmentHelper;
 import io.blushine.android.FragmentEvent;
+import io.blushine.android.R;
 import io.blushine.utils.EventBus;
 
 /**
@@ -76,13 +77,31 @@ private static int calculateDuration(String message) {
 }
 
 /**
+ * Create a simlpe {@link Snackbar} with a message and an undo action
+ * @param message the message to show
+ * @param undoAction the action to take
+ */
+public static void showSnackbarUndo(String message, View.OnClickListener undoAction) {
+	showSnackbar(message, getString(R.string.undo), undoAction);
+}
+
+/**
+ * Create a simlpe {@link Snackbar} with a message and an undo action
+ * @param messageId id of the message to show
+ * @param undoAction the action to take
+ */
+public static void showSnackbarUndo(@StringRes int messageId, View.OnClickListener undoAction) {
+	showSnackbar(messageId, R.string.undo, undoAction);
+}
+
+/**
  * Create a simple {@link android.support.design.widget.Snackbar} with a message
- * @param stringId id of the message to show
+ * @param messageId id of the message to show
  * @param actionTitleId button title as a string resource id
  * @param action the action to take
  */
-public static void showSnackbar(@StringRes int stringId, @StringRes int actionTitleId, View.OnClickListener action) {
-	showSnackbar(getString(stringId), getString(actionTitleId), action);
+public static void showSnackbar(@StringRes int messageId, @StringRes int actionTitleId, View.OnClickListener action) {
+	showSnackbar(getString(messageId), getString(actionTitleId), action);
 }
 
 /**
@@ -97,7 +116,6 @@ public static boolean isShownOrQueued() {
  * Container for snackbar messages
  */
 private static class SnackbarMessage {
-	private static final String TAG = SnackbarMessage.class.getSimpleName();
 	private static final EventBus mEventBus = EventBus.getInstance();
 	private static SnackbarMessage mLastMessage = null;
 	private boolean mNeverShown = true;
@@ -106,14 +124,14 @@ private static class SnackbarMessage {
 	private int mDuration;
 	private View.OnClickListener mAction;
 	private Snackbar mSnackbar;
-
+	
 	SnackbarMessage(String message, String actionTitle, View.OnClickListener action, int duration) {
 		mMessage = message;
 		mActionTitle = actionTitle;
 		mAction = action;
 		mDuration = duration;
 	}
-
+	
 	@Subscribe
 	public void onFragment(FragmentEvent event) {
 		if (event.getEventType() == FragmentEvent.EventTypes.RESUME) {
@@ -123,20 +141,12 @@ private static class SnackbarMessage {
 			}
 		}
 	}
-
+	
 	private boolean isShown() {
-		if (mSnackbar != null) {
-			return mSnackbar.isShownOrQueued();
-		} else {
-			return false;
-		}
+		return mSnackbar != null && mSnackbar.isShownOrQueued();
 	}
-
+	
 	void show() {
-//		String stackTrace = Arrays.toString(Thread.currentThread().getStackTrace());
-//		stackTrace = stackTrace.replace(", ", "\n");
-//		Log.d(TAG, "show() — Show snackbar: " + mMessage + "\n" + stackTrace); // Stacktrace
-
 		if (AppFragmentHelper.getHelper() != null) {
 			final View view = getView();
 			mSnackbar = Snackbar.make(view, mMessage, mDuration);
@@ -158,11 +168,11 @@ private static class SnackbarMessage {
 			mSnackbar.show();
 			mNeverShown = false;
 		}
-
+		
 		mEventBus.register(this);
 		mLastMessage = this;
 	}
-
+	
 	private View getView() {
 		View rootView = AppActivity.getRootView();
 		if (rootView instanceof ViewGroup) {
@@ -176,7 +186,7 @@ private static class SnackbarMessage {
 		}
 		return rootView;
 	}
-
+	
 	private void fixFloatingActionButtonPosition(FloatingActionButton button) {
 		button.setTranslationY(0);
 	}
