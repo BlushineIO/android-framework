@@ -18,10 +18,6 @@ ext {
 android {
     compileSdkVersion targetSdkVersionVal
     buildToolsVersion buildToolsVersionVal
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
     defaultConfig {
         minSdkVersion minSdkVersionVal
         targetSdkVersion targetSdkVersionVal
