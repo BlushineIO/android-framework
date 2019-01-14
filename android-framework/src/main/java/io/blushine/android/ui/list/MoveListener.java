@@ -10,5 +10,5 @@ public interface MoveListener<T> {
  * @param fromPosition item moved from this position
  * @param toPosition item moved to this position
  */
-void onMove(T item, int fromPosition, int toPosition);
+void onMoved(T item, int fromPosition, int toPosition);
 }

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.google.cloud.tools.endpoints-framework-client'
+apply plugin: 'kotlin-android'
 
 group = 'io.blushine.android'
 version = '0.1.0-SNAPSHOT'
@@ -12,6 +12,10 @@ buildscript {
     dependencies {
         classpath 'com.google.cloud.tools:endpoints-framework-gradle-plugin:1.0.2'
     }
+}
+
+ext {
+    supportLibraryVersionVal = '27.1.1'
 }
 
 android {
@@ -71,23 +75,20 @@ configurations.all {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-//    testImplementation 'junit:junit:4.12'
-    implementation project(':common-utils')
-    api 'com.squareup.okhttp3:okhttp:3.10.0'
-    api "com.squareup.okhttp3:okhttp-urlconnection:3.2.0"
-    implementation 'com.github.franmontiel:PersistentCookieJar:v0.9.3'
+    api project(':common-utils')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersionVal"
+    implementation 'com.google.android.gms:play-services-base:16.1.0'
     implementation 'com.google.code.gson:gson:2.8.2'
     api 'com.github.michael-rapp:android-material-dialog:5.1.4'
     api 'com.github.michael-rapp:android-material-preferences:5.1.3'
-    api 'com.wdullaer:materialdatetimepicker:3.2.2'
-    api "com.android.support:appcompat-v7:28.0.0"
-    api "com.android.support:recyclerview-v7:28.0.0"
-    api "com.android.support:design:28.0.0"
-    api 'com.android.support:support-v13:28.0.0'
     api 'com.squareup:otto:1.3.8'
-    implementation 'com.google.http-client:google-http-client-android:1.23.0'
-}
-repositories {
-    google()
+    // api 'com.wdullaer:materialdatetimepicker:3.2.2'
+    api 'co.infinum:materialdatetimepicker-support:3.5.1'
+
+    // Support libraries
+    api "com.android.support:appcompat-v7:27.1.1"
+    api "com.android.support:recyclerview-v7:$supportLibraryVersionVal"
+    api "com.android.support:design:$supportLibraryVersionVal"
+    api "com.android.support:support-v13:$supportLibraryVersionVal"
+    api "com.android.support:preference-v7:$supportLibraryVersionVal"
 }

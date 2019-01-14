@@ -1,6 +1,6 @@
 package io.blushine.android;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 
 /**
  * Fired when onResume() is called in a AppFragment

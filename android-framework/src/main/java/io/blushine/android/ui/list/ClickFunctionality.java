@@ -1,7 +1,6 @@
 package io.blushine.android.ui.list;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 /**
  * Edit an item by long clicking on it
@@ -9,11 +8,11 @@ import android.view.View;
 class ClickFunctionality<T> implements PostBindFunctionality<T> {
 private ClickListener<T> mListener;
 
-public ClickFunctionality(ClickListener<T> listener) {
+ClickFunctionality(ClickListener<T> listener) {
 	if (listener == null) {
 		throw new IllegalArgumentException("listener is null");
 	}
-
+	
 	mListener = listener;
 }
 
@@ -23,13 +22,11 @@ public void applyFunctionality(AdvancedAdapter<T, ?> adapter, RecyclerView recyc
 }
 
 @Override
-public void onPostBind(final AdvancedAdapter<T, ?> adapter, RecyclerView.ViewHolder viewHolder, final int position) {
-	viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-		@Override
-		public void onClick(View view) {
-			T item = adapter.getItem(position);
-			mListener.onClick(item);
-		}
+public void onPostBind(final AdvancedAdapter<T, ?> adapter, RecyclerView.ViewHolder viewHolder, int position) {
+	viewHolder.itemView.setOnClickListener(view -> {
+		int adapterPosition = viewHolder.getAdapterPosition();
+		T item = adapter.getItem(adapterPosition);
+		mListener.onClick(item);
 	});
 }
 }

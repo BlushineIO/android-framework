@@ -1,13 +1,12 @@
 package io.blushine.android;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.EditText;
 
@@ -49,7 +48,7 @@ protected void addSaveView(View view, String name) {
  */
 public void show() {
 	AppActivity activity = AppActivity.getActivity();
-	FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
+	FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
 	fragmentTransaction.replace(android.R.id.content, this);
 	fragmentTransaction.addToBackStack(getClass().getSimpleName());
 	fragmentTransaction.commit();
@@ -92,12 +91,7 @@ public void back() {
 	if (isChanged()) {
 		MaterialDialog.Builder dialogBuilder = new MaterialDialog.Builder(getContext());
 		dialogBuilder.setMessage(mBackMessage);
-		dialogBuilder.setPositiveButton(mBackPositiveActionText, new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dismiss();
-			}
-		});
+		dialogBuilder.setPositiveButton(mBackPositiveActionText, (dialog, which) -> dismiss());
 		dialogBuilder.setNegativeButton(R.string.cancel, null);
 		dialogBuilder.show();
 	} else {

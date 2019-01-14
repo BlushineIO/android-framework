@@ -13,7 +13,7 @@ import java.util.Map;
  * Base class for all fragments. If you want to make a fullscreen fragment, use {@link AppFragment
  * instead}. This class is mostly used for fragments inside fragments.
  */
-public abstract class Fragment extends android.app.Fragment {
+public abstract class Fragment extends android.support.v4.app.Fragment {
 protected View mView;
 private Map<String, Object> mArguments = new HashMap<>();
 private Map<String, AppFragment.ArgumentRequired> mArgumentRequired = new HashMap<>();
@@ -38,6 +38,20 @@ protected void onDeclareArguments() {
  */
 protected void declareArgument(String argumentName, AppFragment.ArgumentRequired required) {
 	mArgumentRequired.put(argumentName, required);
+}
+
+/**
+ * Add arguments to the class
+ * @param arguments add all the arguments to an existing argument list, or set this bundle as the argument
+ * list.
+ */
+protected void addArguments(Bundle arguments) {
+	Bundle existingArguments = getArguments();
+	if (existingArguments != null) {
+		existingArguments.putAll(arguments);
+	} else {
+		setArguments(arguments);
+	}
 }
 
 @Nullable
@@ -87,7 +101,11 @@ private void fetchArguments() {
 	for (Map.Entry<String, AppFragment.ArgumentRequired> entry : mArgumentRequired.entrySet()) {
 		String name = entry.getKey();
 		AppFragment.ArgumentRequired required = entry.getValue();
-		Object value = arguments.get(name);
+		Object value = null;
+		
+		if (arguments != null) {
+			value = arguments.get(name);
+		}
 		
 		if (value != null) {
 			mArguments.put(name, value);

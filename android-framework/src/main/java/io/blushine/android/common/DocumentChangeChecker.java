@@ -1,6 +1,5 @@
-package io.blushine.android.util;
+package io.blushine.android.common;
 
-import android.content.DialogInterface;
 import android.support.annotation.RawRes;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
@@ -48,13 +47,8 @@ public void checkDocument(@RawRes final int rawId, @StringRes final int titleId,
 		AlertDialog dialog = new AlertDialog.Builder(AppActivity.getActivity())
 				.setTitle(titleId)
 				.setMessage(messageId)
-				.setPositiveButton(R.string.ok, null)
-				.setNeutralButton(R.string.view_changes, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						InfoActivity.show(titleId, rawId);
-					}
-				})
+				.setPositiveButton(R.string.accept, null)
+				.setNeutralButton(R.string.view_changes, (dialog1, which) -> InfoActivity.show(titleId, rawId))
 				.show();
 	}
 }
