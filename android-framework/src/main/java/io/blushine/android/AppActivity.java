@@ -3,8 +3,8 @@ package io.blushine.android;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -79,13 +79,14 @@ public static View getRootView() {
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
 	mActivity = this;
 	
 	if (mFirstTime) {
 		mFirstTime = false;
 		onFirstTime();
 	}
+	
+	super.onCreate(savedInstanceState);
 }
 
 /**

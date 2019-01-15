@@ -1,8 +1,8 @@
 package io.blushine.android.validate;
 
 import android.content.res.Resources;
-import android.support.design.widget.CheckableImageButton;
-import android.support.design.widget.TextInputLayout;
+import com.google.android.material.internal.CheckableImageButton;
+import com.google.android.material.textfield.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.ViewParent;

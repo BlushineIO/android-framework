@@ -3,10 +3,10 @@ package io.blushine.android;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.ColorRes;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.app.FragmentTransaction;
+import androidx.annotation.ColorRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.View;
 import android.widget.EditText;
 

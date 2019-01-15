@@ -5,7 +5,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.ColorInt;
+import androidx.annotation.ColorInt;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;

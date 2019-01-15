@@ -15,7 +15,7 @@ buildscript {
 }
 
 ext {
-    supportLibraryVersionVal = '27.1.1'
+    supportLibraryVersionVal = '1.0.0-beta01'
 }
 
 android {
@@ -86,9 +86,9 @@ dependencies {
     api 'co.infinum:materialdatetimepicker-support:3.5.1'
 
     // Support libraries
-    api "com.android.support:appcompat-v7:$supportLibraryVersionVal"
-    api "com.android.support:recyclerview-v7:$supportLibraryVersionVal"
-    api "com.android.support:design:$supportLibraryVersionVal"
-    api "com.android.support:support-v13:$supportLibraryVersionVal"
-    api "com.android.support:preference-v7:$supportLibraryVersionVal"
+    api "androidx.appcompat:appcompat:$supportLibraryVersionVal"
+    api "androidx.recyclerview:recyclerview:$supportLibraryVersionVal"
+    api "com.google.android.material:material:$supportLibraryVersionVal"
+    api "androidx.legacy:legacy-support-v13:$supportLibraryVersionVal"
+    api "androidx.preference:preference:$supportLibraryVersionVal"
 }

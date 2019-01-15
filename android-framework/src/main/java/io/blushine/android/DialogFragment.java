@@ -1,7 +1,7 @@
 package io.blushine.android;
 
-import android.support.annotation.MenuRes;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.MenuRes;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 import io.blushine.android.validate.ValidatorGroup;

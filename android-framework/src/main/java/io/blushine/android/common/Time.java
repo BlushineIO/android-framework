@@ -2,7 +2,7 @@ package io.blushine.android.common;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.format.DateFormat;
 
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;

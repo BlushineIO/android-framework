@@ -1,6 +1,6 @@
 package io.blushine.android.ui;
 
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ClickableSpan;

@@ -2,7 +2,7 @@ package io.blushine.android.ui.list;
 
 import android.content.Context;
 import android.database.DataSetObserver;
-import android.support.annotation.LayoutRes;
+import androidx.annotation.LayoutRes;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;

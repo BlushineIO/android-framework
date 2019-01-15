@@ -3,7 +3,7 @@ package io.blushine.android.common;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.support.annotation.RawRes;
+import androidx.annotation.RawRes;
 import android.util.Log;
 
 import java.io.IOException;

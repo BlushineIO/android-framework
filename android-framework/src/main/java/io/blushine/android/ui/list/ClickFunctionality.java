@@ -1,6 +1,6 @@
 package io.blushine.android.ui.list;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Edit an item by long clicking on it

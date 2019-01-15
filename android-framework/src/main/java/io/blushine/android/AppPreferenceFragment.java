@@ -1,9 +1,9 @@
 package io.blushine.android;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.preference.PreferenceFragmentCompat;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.PreferenceFragmentCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

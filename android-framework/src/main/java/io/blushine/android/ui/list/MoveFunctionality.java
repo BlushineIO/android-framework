@@ -1,9 +1,9 @@
 package io.blushine.android.ui.list;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.IdRes;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IdRes;
+import androidx.core.view.MotionEventCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,7 +15,7 @@ class MoveFunctionality<T> implements PostBindFunctionality<T> {
 private static final String TAG = MoveFunctionality.class.getSimpleName();
 private static final int INVALID_MOVE_BUTTON = -1;
 private MoveListener<T> mListener;
-private android.support.v7.widget.helper.ItemTouchHelper mItemTouchHelper;
+private androidx.recyclerview.widget.ItemTouchHelper mItemTouchHelper;
 @IdRes private int mMoveButtonId;
 
 /**
@@ -39,7 +39,7 @@ MoveFunctionality(MoveListener<T> listener, @IdRes int moveButtonId) {
 @Override
 public void applyFunctionality(AdvancedAdapter<T, ?> adapter, RecyclerView recyclerView) {
 	MoveCallback moveCallback = new MoveCallback(adapter);
-	mItemTouchHelper = new android.support.v7.widget.helper.ItemTouchHelper(moveCallback);
+	mItemTouchHelper = new androidx.recyclerview.widget.ItemTouchHelper(moveCallback);
 	mItemTouchHelper.attachToRecyclerView(recyclerView);
 }
 

@@ -1,6 +1,6 @@
 package io.blushine.android.ui.list;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Called after the view has been bound (only for original list items)

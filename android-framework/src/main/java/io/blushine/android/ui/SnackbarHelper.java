@@ -1,8 +1,8 @@
 package io.blushine.android.ui;
 
-import android.support.annotation.StringRes;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import androidx.annotation.StringRes;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -35,7 +35,7 @@ private SnackbarHelper() {
 }
 
 /**
- * Create a simple {@link android.support.design.widget.Snackbar} with a message
+ * Create a simple {@link Snackbar} with a message
  * @param stringId id of the message to show
  */
 public static void showSnackbar(@StringRes int stringId) {
@@ -43,7 +43,7 @@ public static void showSnackbar(@StringRes int stringId) {
 }
 
 /**
- * Create a simple {@link android.support.design.widget.Snackbar} with a message
+ * Create a simple {@link Snackbar} with a message
  * @param message the message to show
  */
 public static void showSnackbar(String message) {
@@ -55,7 +55,7 @@ private static String getString(@StringRes int stringId) {
 }
 
 /**
- * Create a simple {@link android.support.design.widget.Snackbar} with a message and an action
+ * Create a simple {@link Snackbar} with a message and an action
  * @param message the message to show
  * @param actionTitle button title
  * @param action the action to take
@@ -95,7 +95,7 @@ public static void showSnackbarUndo(@StringRes int messageId, View.OnClickListen
 }
 
 /**
- * Create a simple {@link android.support.design.widget.Snackbar} with a message
+ * Create a simple {@link Snackbar} with a message
  * @param messageId id of the message to show
  * @param actionTitleId button title as a string resource id
  * @param action the action to take

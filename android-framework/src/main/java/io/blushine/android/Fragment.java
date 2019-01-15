@@ -1,7 +1,7 @@
 package io.blushine.android;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +13,7 @@ import java.util.Map;
  * Base class for all fragments. If you want to make a fullscreen fragment, use {@link AppFragment
  * instead}. This class is mostly used for fragments inside fragments.
  */
-public abstract class Fragment extends android.support.v4.app.Fragment {
+public abstract class Fragment extends androidx.fragment.app.Fragment {
 protected View mView;
 private Map<String, Object> mArguments = new HashMap<>();
 private Map<String, AppFragment.ArgumentRequired> mArgumentRequired = new HashMap<>();

@@ -1,8 +1,8 @@
 package io.blushine.android.ui.list;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IdRes;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -132,9 +132,9 @@ public void addViewInfoFunctionality(ViewInfoListener<T> listener) {
 
 /**
  * Set the {@link ViewHolderFunctionality} to create and manage the {@link
- * android.support.v7.widget.RecyclerView.ViewHolder} for the specified item. If another view holder
+ * RecyclerView.ViewHolder} for the specified item. If another view holder
  * has been set, the new specified view holder will be used instead
- * @param item the item to use a custom {@link android.support.v7.widget.RecyclerView.ViewHolder}.
+ * @param item the item to use a custom {@link RecyclerView.ViewHolder}.
  * @param viewHolderFunctionality the instance which handles the item
  * @see #removeItemViewHolder(Object, ViewHolderFunctionality) to remove it
  */
@@ -145,9 +145,9 @@ public void setItemViewHolder(T item, ViewHolderFunctionality viewHolderFunction
 
 /**
  * Remove the {@link ViewHolderFunctionality} from managing the {@link
- * android.support.v7.widget.RecyclerView.ViewHolder} for the item. Does nothing if
+ * RecyclerView.ViewHolder} for the item. Does nothing if
  * viewHolderFunctionality isn't managing the item.
- * @param item the item to remove the custom use of a {@link android.support.v7.widget.RecyclerView.ViewHolder}.
+ * @param item the item to remove the custom use of a {@link RecyclerView.ViewHolder}.
  * @param viewHolderFunctionality the instance which handles the item
  * @see #setItemViewHolder(Object, ViewHolderFunctionality)  to add the functionality
  */

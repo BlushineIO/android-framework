@@ -2,7 +2,7 @@ package io.blushine.android.ui;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import io.blushine.android.AppActivity;
 

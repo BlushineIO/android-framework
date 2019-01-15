@@ -18,9 +18,9 @@ fun TextView.OnEditorActionListener.isDoneOrEnterPressed(actionId: Int, keyEvent
 class KeyHelper {
 	companion object {
 		@JvmStatic
-		fun isDoneOrEnterPressed(actionId: Int, keyEvent: KeyEvent): Boolean {
+		fun isDoneOrEnterPressed(actionId: Int, keyEvent: KeyEvent?): Boolean {
 			return actionId == EditorInfo.IME_ACTION_DONE ||
-					((keyEvent.keyCode == KeyEvent.KEYCODE_ENTER || keyEvent.keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER) &&
+					((keyEvent?.keyCode == KeyEvent.KEYCODE_ENTER || keyEvent?.keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER) &&
 							keyEvent.action == KeyEvent.ACTION_DOWN)
 		}
 	}

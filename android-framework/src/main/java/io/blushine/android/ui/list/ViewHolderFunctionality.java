@@ -1,6 +1,6 @@
 package io.blushine.android.ui.list;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -13,14 +13,14 @@ public interface ViewHolderFunctionality<T> extends AdapterFunctionality<T> {
 
 /**
  * Called to create a view holder for the specified type. Called when RecyclerView needs a new
- * {@link android.support.v7.widget.RecyclerView.ViewHolder} of the given type to represent an
+ * {@link RecyclerView.ViewHolder} of the given type to represent an
  * item.
  * <p>
  * This new ViewHolder should be constructed with a new View that can represent the items of the
  * given type. You can either create a new View manually or inflate it from an XML layout file.
  * <p>
  * The new ViewHolder will be used to display items of the adapter using {@link
- * android.support.v7.widget.RecyclerView.Adapter#onBindViewHolder(RecyclerView.ViewHolder, int,
+ * RecyclerView.Adapter#onBindViewHolder(RecyclerView.ViewHolder, int,
  * List)}. Since it will be re-used to display different items in the data set, it is a good idea to
  * cache references to sub views of the View to avoid unnecessary {@link View#findViewById(int)}
  * calls.
@@ -42,7 +42,7 @@ Class<? extends RecyclerView.ViewHolder> getViewHolderClass();
 
 /**
  * Called by RecyclerView to display the data at the specified position. This method should update
- * the contents of the {@link android.support.v7.widget.RecyclerView.ViewHolder#itemView} to reflect
+ * the contents of the {@link RecyclerView.ViewHolder#itemView} to reflect
  * the item at the given position.
  * <p>
  * Note that unlike {@link android.widget.ListView}, RecyclerView will not call this method again if
@@ -50,7 +50,7 @@ Class<? extends RecyclerView.ViewHolder> getViewHolderClass();
  * position cannot be determined. For this reason, you should only use the <code>position</code>
  * parameter while acquiring the related data item inside this method and should not keep a copy of
  * it. If you need the position of an item later on (e.g. in a click listener), use {@link
- * android.support.v7.widget.RecyclerView.ViewHolder#getAdapterPosition()} which will have the
+ * RecyclerView.ViewHolder#getAdapterPosition()} which will have the
  * updated adapter position.
  * <p>
  * @param adapter The adapter that called this method, i.e. which has the items

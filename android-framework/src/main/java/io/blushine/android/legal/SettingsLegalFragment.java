@@ -2,8 +2,8 @@ package io.blushine.android.legal;
 
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.preference.Preference;
+import androidx.appcompat.app.ActionBar;
+import androidx.preference.Preference;
 
 import io.blushine.android.AppActivity;
 import io.blushine.android.AppPreferenceFragment;

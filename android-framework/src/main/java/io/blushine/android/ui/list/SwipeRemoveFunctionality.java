@@ -4,10 +4,10 @@ import android.graphics.Canvas;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
-import android.support.annotation.ColorInt;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.ColorInt;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,11 +101,11 @@ public void onBindViewHolder(AdvancedAdapter<T, ?> adapter, RecyclerView.ViewHol
 public void applyFunctionality(AdvancedAdapter<T, ?> adapter, RecyclerView recyclerView) {
 	// Item touch helper
 	// Use custom item touch helper so we can swipe between View Pages
-	android.support.v7.widget.helper.ItemTouchHelper itemTouchHelper;
+	androidx.recyclerview.widget.ItemTouchHelper itemTouchHelper;
 	if (canSwipeBetweenPages(recyclerView)) {
 		itemTouchHelper = new ItemTouchHelper(new ItemRemoveCallback());
 	} else {
-		itemTouchHelper = new android.support.v7.widget.helper.ItemTouchHelper(new ItemRemoveCallback());
+		itemTouchHelper = new androidx.recyclerview.widget.ItemTouchHelper(new ItemRemoveCallback());
 	}
 	itemTouchHelper.attachToRecyclerView(recyclerView);
 	

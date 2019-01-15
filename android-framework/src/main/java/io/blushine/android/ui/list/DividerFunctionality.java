@@ -5,14 +5,14 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import io.blushine.android.AppActivity;
 
 /**
- * Adds a divider line between items for all {@link android.support.v7.widget.RecyclerView} the
+ * Adds a divider line between items for all {@link RecyclerView} the
  * {@link AdvancedAdapter} has been attached to.
  */
 class DividerFunctionality implements AdapterFunctionality {
@@ -26,7 +26,7 @@ public void applyFunctionality(AdvancedAdapter adapter, RecyclerView recyclerVie
 }
 
 /**
- * Creates small (1px) lines between list items in a {@link android.support.v7.widget.RecyclerView}.
+ * Creates small (1px) lines between list items in a {@link RecyclerView}.
  */
 static class DividerItemDecoration extends RecyclerView.ItemDecoration {
 	public static final int HORIZONTAL_LIST = LinearLayoutManager.HORIZONTAL;

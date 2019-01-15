@@ -2,10 +2,10 @@ package io.blushine.android.ui.list;
 
 import android.content.res.Resources;
 import android.graphics.Point;
-import android.support.annotation.Nullable;
-import android.support.v4.view.GestureDetectorCompat;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.core.view.GestureDetectorCompat;
+import androidx.core.view.MotionEventCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
@@ -24,7 +24,7 @@ import io.blushine.android.R;
 /**
  * Improved version of the ItemTouchHelper
  */
-public class ItemTouchHelper extends android.support.v7.widget.helper.ItemTouchHelper {
+public class ItemTouchHelper extends androidx.recyclerview.widget.ItemTouchHelper {
 private static final String TAG = ItemTouchHelper.class.getSimpleName();
 private static final float CLOSE_TO_SCREEN_EDGE = 0.15f; // 15%
 private static final int ACTIVE_POINTER_ID_NONE = -1;
@@ -75,38 +75,38 @@ public ItemTouchHelper(Callback callback) {
 
 private void initReflection() {
 	try {
-		mfActionState = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mActionState");
+		mfActionState = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mActionState");
 		mfActionState.setAccessible(true);
-		mfActivePointerId = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mActivePointerId");
+		mfActivePointerId = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mActivePointerId");
 		mfActivePointerId.setAccessible(true);
-		mfDx = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mDx");
+		mfDx = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mDx");
 		mfDx.setAccessible(true);
-		mfDy = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mDy");
+		mfDy = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mDy");
 		mfDy.setAccessible(true);
-		mfRecyclerView = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mRecyclerView");
+		mfRecyclerView = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mRecyclerView");
 		mfRecyclerView.setAccessible(true);
-		mfSwipeEscapeVelocity = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mSwipeEscapeVelocity");
+		mfSwipeEscapeVelocity = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mSwipeEscapeVelocity");
 		mfSwipeEscapeVelocity.setAccessible(true);
-		mfMaxSwipeVelocity = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mMaxSwipeVelocity");
+		mfMaxSwipeVelocity = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mMaxSwipeVelocity");
 		mfMaxSwipeVelocity.setAccessible(true);
-		mfSlop = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mSlop");
+		mfSlop = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mSlop");
 		mfSlop.setAccessible(true);
-		mfSelected = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mSelected");
+		mfSelected = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mSelected");
 		mfSelected.setAccessible(true);
-		mfRecoverAnimations = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mRecoverAnimations");
+		mfRecoverAnimations = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mRecoverAnimations");
 		mfRecoverAnimations.setAccessible(true);
-		mfRecoverAnimationsmViewHolder = Class.forName(android.support.v7.widget.helper.ItemTouchHelper.class.getName() + "$RecoverAnimation").getDeclaredField("mViewHolder");
-		mfOverdrawChild = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mOverdrawChild");
+		mfRecoverAnimationsmViewHolder = Class.forName(androidx.recyclerview.widget.ItemTouchHelper.class.getName() + "$RecoverAnimation").getDeclaredField("mViewHolder");
+		mfOverdrawChild = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mOverdrawChild");
 		mfOverdrawChild.setAccessible(true);
-		mfOverdrawChildPosition = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mOverdrawChildPosition");
+		mfOverdrawChildPosition = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mOverdrawChildPosition");
 		mfOverdrawChildPosition.setAccessible(true);
-		mmReleaseVelocityTracker = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredMethod("releaseVelocityTracker");
+		mmReleaseVelocityTracker = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredMethod("releaseVelocityTracker");
 		mmReleaseVelocityTracker.setAccessible(true);
-		mmInitGestureDetector = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredMethod("initGestureDetector");
+		mmInitGestureDetector = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredMethod("initGestureDetector");
 		mmInitGestureDetector.setAccessible(true);
-		mmSelect = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredMethod("select", RecyclerView.ViewHolder.class, int.class);
+		mmSelect = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredMethod("select", RecyclerView.ViewHolder.class, int.class);
 		mmSelect.setAccessible(true);
-		mmFindSwipedView = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredMethod("findSwipedView", MotionEvent.class);
+		mmFindSwipedView = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredMethod("findSwipedView", MotionEvent.class);
 		mmFindSwipedView.setAccessible(true);
 		mmCallbackGetAbsoluteMovementFlags = Callback.class.getDeclaredMethod("getAbsoluteMovementFlags", RecyclerView.class, RecyclerView.ViewHolder.class);
 		mmCallbackGetAbsoluteMovementFlags.setAccessible(true);
@@ -327,35 +327,35 @@ private class OnItemTouchListener implements RecyclerView.OnItemTouchListener {
 	 */
 	OnItemTouchListener() {
 		try {
-			mfGestureDetector = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mGestureDetector");
+			mfGestureDetector = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mGestureDetector");
 			mfGestureDetector.setAccessible(true);
-			mfInitialTouchX = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mInitialTouchX");
+			mfInitialTouchX = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mInitialTouchX");
 			mfInitialTouchX.setAccessible(true);
-			mfInitialTouchY = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mInitialTouchY");
+			mfInitialTouchY = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mInitialTouchY");
 			mfInitialTouchY.setAccessible(true);
-			mfRecoverAnimationmX = Class.forName(android.support.v7.widget.helper.ItemTouchHelper.class.getName() + "$RecoverAnimation").getDeclaredField("mX");
+			mfRecoverAnimationmX = Class.forName(androidx.recyclerview.widget.ItemTouchHelper.class.getName() + "$RecoverAnimation").getDeclaredField("mX");
 			mfRecoverAnimationmX.setAccessible(true);
-			mfRecoverAnimationmY = Class.forName(android.support.v7.widget.helper.ItemTouchHelper.class.getName() + "$RecoverAnimation").getDeclaredField("mY");
+			mfRecoverAnimationmY = Class.forName(androidx.recyclerview.widget.ItemTouchHelper.class.getName() + "$RecoverAnimation").getDeclaredField("mY");
 			mfRecoverAnimationmY.setAccessible(true);
-			mfRecoverAnimationmActionState = Class.forName(android.support.v7.widget.helper.ItemTouchHelper.class.getName() + "$RecoverAnimation").getDeclaredField("mActionState");
+			mfRecoverAnimationmActionState = Class.forName(androidx.recyclerview.widget.ItemTouchHelper.class.getName() + "$RecoverAnimation").getDeclaredField("mActionState");
 			mfRecoverAnimationmActionState.setAccessible(true);
-			mfPendingCleanup = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mPendingCleanup");
+			mfPendingCleanup = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mPendingCleanup");
 			mfPendingCleanup.setAccessible(true);
-			mfSelectedFlags = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mSelectedFlags");
+			mfSelectedFlags = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mSelectedFlags");
 			mfSelectedFlags.setAccessible(true);
-			mfVelocityTracker = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mVelocityTracker");
+			mfVelocityTracker = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mVelocityTracker");
 			mfVelocityTracker.setAccessible(true);
-			mfScrollRunnable = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredField("mScrollRunnable");
+			mfScrollRunnable = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredField("mScrollRunnable");
 			mfScrollRunnable.setAccessible(true);
-			mmObtainVelocityTracker = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredMethod("obtainVelocityTracker");
+			mmObtainVelocityTracker = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredMethod("obtainVelocityTracker");
 			mmObtainVelocityTracker.setAccessible(true);
-			mmFindAnimation = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredMethod("findAnimation", MotionEvent.class);
+			mmFindAnimation = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredMethod("findAnimation", MotionEvent.class);
 			mmFindAnimation.setAccessible(true);
-			mmEndRecoverAnimation = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredMethod("endRecoverAnimation", RecyclerView.ViewHolder.class, boolean.class);
+			mmEndRecoverAnimation = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredMethod("endRecoverAnimation", RecyclerView.ViewHolder.class, boolean.class);
 			mmEndRecoverAnimation.setAccessible(true);
-			mmUpdateDxDy = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredMethod("updateDxDy", MotionEvent.class, int.class, int.class);
+			mmUpdateDxDy = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredMethod("updateDxDy", MotionEvent.class, int.class, int.class);
 			mmUpdateDxDy.setAccessible(true);
-			mmMoveIfNecessary = android.support.v7.widget.helper.ItemTouchHelper.class.getDeclaredMethod("moveIfNecessary", RecyclerView.ViewHolder.class);
+			mmMoveIfNecessary = androidx.recyclerview.widget.ItemTouchHelper.class.getDeclaredMethod("moveIfNecessary", RecyclerView.ViewHolder.class);
 			mmMoveIfNecessary.setAccessible(true);
 		} catch (NoSuchFieldException e) {
 			Log.e(TAG, "OnItemTouchListener() — No such field", e);

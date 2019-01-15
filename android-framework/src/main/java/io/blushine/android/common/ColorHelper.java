@@ -5,9 +5,9 @@ import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
 import android.content.res.Resources.Theme;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.Nullable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.Nullable;
 
 
 /**

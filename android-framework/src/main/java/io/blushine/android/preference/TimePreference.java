@@ -2,11 +2,11 @@ package io.blushine.android.preference;
 
 import android.content.Context;
 import android.os.Parcelable;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StyleRes;
-import android.support.v7.preference.Preference;
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+import androidx.preference.Preference;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 
