@@ -25,7 +25,7 @@ protected boolean validateTextFields() {
  * @param view a view that contains the toolbar
  */
 protected void initToolbar(View view) {
-	Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+	Toolbar toolbar = view.findViewById(R.id.toolbar);
 	toolbar.setTitle(getTitle());
 	toolbar.inflateMenu(getMenu());
 	toolbar.setNavigationOnClickListener(new BackOnClickListener());
