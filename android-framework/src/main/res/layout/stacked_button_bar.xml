@@ -8,9 +8,9 @@
 	android:layout_height="wrap_content"
 	android:orientation="vertical">
 
-	<io.blushine.android.ui.view.ButtonMaterial
+	<Button
 		android:id="@android:id/button1"
-		style="@style/MaterialDialog.Button"
+		style="@style/Material.Dialog.Button"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:gravity="end|center_vertical"
@@ -18,9 +18,9 @@
 		android:paddingRight="@dimen/dialog_button_horizontal_padding"
 		android:visibility="gone"/>
 
-	<io.blushine.android.ui.view.ButtonMaterial
+	<Button
 		android:id="@android:id/button2"
-		style="@style/MaterialDialog.Button"
+		style="@style/Material.Dialog.Button"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:gravity="end|center_vertical"
@@ -28,9 +28,9 @@
 		android:paddingRight="@dimen/dialog_button_horizontal_padding"
 		android:visibility="gone"/>
 
-	<io.blushine.android.ui.view.ButtonMaterial
+	<Button
 		android:id="@android:id/button3"
-		style="@style/MaterialDialog.Button"
+		style="@style/Material.Dialog.Button"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:gravity="end|center_vertical"

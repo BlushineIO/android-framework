@@ -17,7 +17,7 @@ public enum Fonts {
 	REGULAR_ITALIC(null, "sans-serif", Typeface.ITALIC, 16),
 	REGULAR_BOLD(null, "sans-serif", Typeface.BOLD, 16),
 	REGULAR_BOLD_ITALIC(null, "sans-serif", Typeface.BOLD_ITALIC, 16),
-	MEDIUM("Roboto-Medium.ttf", "sans-serif-medium", Typeface.NORMAL, 21),
+	MEDIUM(null, "sans-serif-medium", Typeface.NORMAL, 21),
 	CONDENSED(null, "sans-serif-condensed", Typeface.NORMAL, 16),
 	CONDENSED_ITALIC(null, "sans-serif-condensed", Typeface.ITALIC, 16),
 	CONDENSED_BOLD(null, "sans-serif-condensed", Typeface.BOLD, 16),
